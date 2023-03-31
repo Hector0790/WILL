@@ -1,4 +1,4 @@
-/* 
+ /* 
   Importante: 
   No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
   código dentro de las funciones ya definidas. 
@@ -11,6 +11,11 @@ function crearClasePersona() {
       // Inicializar las propiedades de la persona con los valores recibidos como argumento
 
       // Tu código aca:
+      this.nombre = nombre;
+      this.edad = edad;
+      this.hobbies = hobbies;
+      this.amigos = amigos;
+
 
     }
 
@@ -20,7 +25,8 @@ function crearClasePersona() {
       // No debe retornar nada.
 
       // Tu código aca:
-
+      var amigo = {nombre: nombre, edad: edad};
+     this.amigos.push(amigo); 
     }
 
     addHobby(hobby) {
@@ -28,6 +34,8 @@ function crearClasePersona() {
       // No debe retornar nada.
 
       // Tu código aca:
+      
+      this.hobbies.push(hobby);
 
     }
     getFriends() {
@@ -38,6 +46,11 @@ function crearClasePersona() {
       // persona.getFriends() debería devolver ['martin', 'toni']
 
       // Tu código aca:
+      var nombres = this.amigos.map(function(i){
+        return i.nombre   
+         
+     });
+     return nombres
 
     }
 
@@ -47,6 +60,7 @@ function crearClasePersona() {
       // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
 
       // Tu código aca:
+      return this.hobbies
 
     }
 
@@ -66,6 +80,11 @@ function crearClasePersona() {
       // persona.getPromedioEdad() debería devolver 29 ya que (33 + 25) / 2 = 29
 
       // Tu código aca:
+      var totalEdad=0;
+      for(var i=0;i< this.amigos.length; i++){
+      totalEdad = totalEdad + this.amigos[i].edad;
+    }
+       return totalEdad / this.amigos.length;
 
     }
   };
